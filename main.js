@@ -13,9 +13,8 @@ function start(){
 
 function selection(element){
     if (!element.style.backgroundColor){
-        element.style.backgroundColor = "rgba(95, 158, 160, 0.35)"
+        element.style.backgroundColor = "rgba(19, 15, 83, 0.979)"
         let index = parseInt(element.id.slice(1)) - 1;
-        console.log(index);
         res[index] = element.id.slice(0,1);
         console.log(res);
     }
