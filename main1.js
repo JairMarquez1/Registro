@@ -1,12 +1,14 @@
 let res = ['_','_','_','_','_','_','_','_','_'];
-let quantity;
+let quantity = localStorage.getItem('quantity');
 
 function start(){
     let container = document.getElementById("text");
     container.innerHTML = res.join("\xa0\xa0");
     let quantity = localStorage.getItem('quantity');
     if (quantity)
-        document.querySelector('.botonenviar span').textContent = quantity;
+    document.querySelector('.botonenviar span').textContent = quantity;
+    document.getElementById("display").innerHTML = localStorage.getItem("results") + "\n";
+    document.getElementById("total").innerHTML = "Total: $" + quantity*25 +"\n";
 }
 
 function selection(element){
@@ -41,14 +43,16 @@ function number(){
 function result(){
     results = localStorage.getItem("results");
     if (results){
-        localStorage.setItem('results', results + "%0D" + res.join("%20%20"));
+        /*localStorage.setItem('results', results + "%0D" + res.join("%20%20"));*/
+        localStorage.setItem('results', results + "\n" + res.join("\xa0\xa0"));
         }
         else
-            localStorage.setItem('results', res.join("%20%20"));}
+            localStorage.setItem('results', res.join("\xa0\xa0"));}
 
 function send(){
-    if (!quantity)
+    if (!quantity){
         save();
+        console.log("hola");}
     else{
     let whatsapptext = res.join("%20%20")
     whatsapptext = localStorage.getItem("results");
@@ -61,8 +65,20 @@ function save(){
     else{
         number();
         result();
-        console.log(results);}
-
+        updatedisplay();}
 }
+
+function deleteall(){
+    if(confirm("Se borrará todo"))
+        {localStorage.clear();
+        location.reload();}
+}
+
+function updatedisplay(){
+    /*document.getElementById("display").innerHTML += (quantity + "- " + res.join("\xa0\xa0"));*/
+    document.getElementById("display").innerHTML += res.join("\xa0\xa0") + "\n";
+    document.getElementById("total").innerHTML = "Total: $" + quantity*25;
+}
+
 
 window.addEventListener("load",start,false);
