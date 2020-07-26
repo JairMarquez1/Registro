@@ -15,7 +15,7 @@ function start(){
     if (results){
         results = results.split("*");
         for (var i = 0; i < quantity; i++){
-            if (results[i]){
+            if (results[i] != undefined){
                 document.getElementById("display").innerHTML += `<div>`+ results[i] +`</div>`;} 
             else
                 break;
