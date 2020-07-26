@@ -50,12 +50,12 @@ function result(){
             localStorage.setItem('results', res.join("\xa0\xa0"));}
 
 function send(){
-    if (!quantity){
+    if (!quantity)
         save();
-        console.log("hola");}
     else{
     let whatsapptext = res.join("%20%20")
-    whatsapptext = localStorage.getItem("results");
+    whatsapptext = encodeURI(localStorage.getItem("results"));
+    console.log(whatsapptext);
     window.location.href = "https://wa.me/523318325850?text="+whatsapptext;}
 }
 
