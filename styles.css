@@ -12,6 +12,7 @@
     background-repeat: no-repeat;
     max-width: 400px;
     height: 375px;
+    border-radius: 10px;
 
 }
 
@@ -45,6 +46,7 @@
 body{
     max-width: 400px;
     margin: auto;
+    background-color: gray;
 }
 
 h1{
@@ -54,4 +56,25 @@ h1{
     color: whitesmoke;
     margin-top: 32px;
     border: solid 1px black;
+}
+
+h2{
+    background-color:  #4ac959;
+    text-align: center;
+    padding: 8px;
+    width: 140px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 2px black solid;
+    border: none;
+    float: left;
+    box-shadow: 2px 2px black;
+}
+
+#listo{
+    background-color: rgb(15, 163, 201);
+    width: 50px;
+    border-radius: 15px;
+    padding-top: 10px;
 }
