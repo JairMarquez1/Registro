@@ -12,7 +12,7 @@
 <body>
     <br>
     <div class="quiniela">
-        <div class="aux"></div>
+        <div class="aux"><h3 onclick="clean()"><ion-icon name="close-outline"></ion-icon></h3></div>
         <div class="partido">
             <span id="L1" onclick="selection(this)"></span>
             <div id="_"></div>
@@ -78,12 +78,16 @@
         </div>
         <h1 id="text"></h1>
     </div>
+    <div>
     <h2 class="botonenviar" onclick="send()"> Enviar <span>0</span></h2>
-    <h2 id="listo" onclick="save()"><ion-icon name="add-outline"></ion-icon></h2>
+    <h2 id="botonlisto" onclick="save()"><ion-icon name="add-outline"></ion-icon></h2>
     <h2 id="botonborrar" onclick="deleteall()"><ion-icon name="trash-outline" id="trash"></ion-icon></h2>
+    <h4><input id="nombre" type="text" placeholder="Nombre" maxlength="20" spellcheck="false" pattern="[A-Za-z]{3}" title="Three letter country code">Nombre</h4><button id="ultimonombre" onclick="recovername()"><ion-icon name="arrow-undo-outline"></ion-icon></button>
+    <input type="checkbox" id="checkcombinaciones" onclick="allowcombination()">
     <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
-    <h4 id="total">Total: $0</h4>
     <br><br><br><br>
+    </div>
+    <h4 id="total">Total: $0</h4><br><br>
     <div class="display">
     <p id="display"></p>
     </div>
