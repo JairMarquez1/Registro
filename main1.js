@@ -16,7 +16,9 @@ function start(){
         results = results.split("*");
         for (var i = 0; i < quantity; i++){
             if (results[i]){
-                document.getElementById("display").innerHTML += `<div>`+ results[i] +`</div>`;}  
+                document.getElementById("display").innerHTML += `<div>`+ results[i] +`</div>`;} 
+            else
+                break;
     }
     document.getElementById("total").innerHTML = "Total: $" + quantity*25 +"\n";
 }  }
