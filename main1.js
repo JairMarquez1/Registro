@@ -8,6 +8,7 @@ function start(){
     let container = document.getElementById("text");
     container.innerHTML = res.join("\xa0\xa0");
     let quantity = localStorage.getItem('quantity');
+    /*if (quantity>999){deleteall();}*/
     name = localStorage.getItem("alias");
     if (quantity)
     document.querySelector('.botonenviar span').textContent = quantity;
@@ -129,8 +130,9 @@ function calculate(){
         aux*= res[i].length;
     }
     quantity = localStorage.getItem("quantity");
-    if (quantity)
+    if (quantity){
         localStorage.setItem('quantity', parseInt(quantity)+aux);
+        quantity = localStorage.getItem('quantity');}
     else{
         localStorage.setItem('quantity', aux);
         quantity = localStorage.getItem("quantity");}
