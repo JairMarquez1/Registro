@@ -7,8 +7,8 @@ function start(){
     let quantity = localStorage.getItem('quantity');
     if (quantity)
     document.querySelector('.botonenviar span').textContent = quantity;
-    document.getElementById("display").innerHTML = localStorage.getItem("results") + "\n";
-    document.getElementById("total").innerHTML = "Total: $" + quantity*25 +"\n";
+    document.getElementById("display").innerHTML = localStorage.getItem("results") + "\n.";
+    document.getElementById("total").innerHTML = "Total: $" + quantity*25 +"\n.";
 }
 
 function selection(element){
@@ -44,7 +44,7 @@ function result(){
     results = localStorage.getItem("results");
     if (results){
         /*localStorage.setItem('results', results + "%0D" + res.join("%20%20"));*/
-        localStorage.setItem('results', results + "\n" + res.join("\xa0\xa0"));
+        localStorage.setItem('results', results + "\n." + res.join("\xa0\xa0"));
         }
         else
             localStorage.setItem('results', res.join("\xa0\xa0"));}
@@ -55,6 +55,7 @@ function send(){
     else{
     let whatsapptext = res.join("%20%20")
     whatsapptext = encodeURI(localStorage.getItem("results"));
+    whatsapptext = whatsapptext.split('.').join('%0D%0A');
     console.log(whatsapptext);
     window.location.href = "https://wa.me/523318325850?text="+whatsapptext;}
 }
@@ -76,7 +77,7 @@ function deleteall(){
 
 function updatedisplay(){
     /*document.getElementById("display").innerHTML += (quantity + "- " + res.join("\xa0\xa0"));*/
-    document.getElementById("display").innerHTML += res.join("\xa0\xa0") + "\n";
+    document.getElementById("display").innerHTML += res.join("\xa0\xa0") + "\n.";
     document.getElementById("total").innerHTML = "Total: $" + quantity*25;
 }
 
