@@ -1,25 +1,27 @@
-let L = [1,2,3,4,5,6,7,8,9];
-let E = [1,2,3,4,5,6,7,8,9];
-let V = [1,2,3,4,5,6,7,8,9];
-let res = ['','','','','','','','',''];
+let res = ['_','_','_','_','_','_','_','_','_'];
 
 function start(){
-    for (var i = 1; i < 10 ; i++){
-        L[i] = document.getElementById("L"+i);
-        E[i] = document.getElementById("E"+i);
-        V[i] = document.getElementById("V"+i);
-    }
+    let container = document.getElementById("text");
+    container.innerHTML = res.join("\xa0\xa0");
 }
 
 function selection(element){
     if (!element.style.backgroundColor){
+        validation(element);
         element.style.backgroundColor = "rgba(19, 15, 83, 0.979)"
         let index = parseInt(element.id.slice(1)) - 1;
         res[index] = element.id.slice(0,1);
-        console.log(res);
-    }
-    else
-    element.style.backgroundColor = null;
+        let container = document.getElementById("text");
+        container.innerHTML = res.join("\xa0\xa0");
+   }
+}
+
+function validation(element){
+    let index = parseInt(element.id.slice(1));
+    document.getElementById("L"+index).style.backgroundColor = null;
+    document.getElementById("E"+index).style.backgroundColor = null;
+    document.getElementById("V"+index).style.backgroundColor = null;
+
 }
 
 window.addEventListener("load",start,false);
