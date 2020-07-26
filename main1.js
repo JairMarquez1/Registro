@@ -4,6 +4,7 @@ let name;
 let combinations = false;
 
 function start(){
+    console.log(document.querySelector(".quiniela").style.width);
     let container = document.getElementById("text");
     container.innerHTML = res.join("\xa0\xa0");
     let quantity = localStorage.getItem('quantity');
@@ -13,11 +14,12 @@ function start(){
     let results = localStorage.getItem("results");
     if (results){
         results = results.split("*");
-        for (var i = 0; i < quantity; i++)
-            document.getElementById("display").innerHTML += `<div>`+ results[i] +`</div>`;  
+        for (var i = 0; i < quantity; i++){
+            if (results[i]){
+                document.getElementById("display").innerHTML += `<div>`+ results[i] +`</div>`;}  
     }
     document.getElementById("total").innerHTML = "Total: $" + quantity*25 +"\n";
-}
+}  }
 
 function selection(element){
     if (!element.style.backgroundColor){
