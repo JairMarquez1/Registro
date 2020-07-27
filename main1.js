@@ -4,8 +4,8 @@ let name;
 let combinations = false;
 
 function start(){
+    recovername();
     let width = document.getElementsByClassName('quiniela')[0].offsetWidth;
-    console.log(typeof(width));
     document.getElementById("quiniela").style.height = width*0.9375 + "px";
     let container = document.getElementById("text");
     container.innerHTML = res.join("\xa0\xa0");
@@ -38,7 +38,7 @@ function selection(element){
             res[index] += element.id.slice(0,1);
             res[index] = res[index].split('_').join('');
         }
-        element.style.backgroundColor = "rgba(19, 15, 83, 0.979)";
+        element.style.backgroundColor = "rgb(168, 32, 22)";
         container.innerHTML = res.join("\xa0\xa0");}
 }
 
@@ -56,7 +56,6 @@ function number(){
     else{
         localStorage.setItem('quantity', 1);
         quantity = localStorage.getItem("quantity");}
-        console.log(quantity);
     document.querySelector('.botonenviar span').textContent = quantity;
     localStorage.setItem('alias', name);
 }
@@ -66,10 +65,10 @@ function result(){
     name = document.getElementById("nombre").value;
     if (results){
         /*localStorage.setItem('results', results + "%0D" + res.join("%20%20"));*/
-        localStorage.setItem('results', results + "\n" + name + "\xa0\xa0" + res.join("\xa0\xa0") + "*");
+        localStorage.setItem('results', results + "\n" + res.join("\xa0\xa0") + "\xa0\xa0" + name + "*");
         }
         else
-            localStorage.setItem('results',name + "\xa0\xa0" + res.join("\xa0\xa0") + "*");
+            localStorage.setItem('results',res.join("\xa0\xa0") + "\xa0\xa0" + name+ "*");
 }
 
 function send(){
@@ -78,7 +77,7 @@ function send(){
     else{
     let whatsapptext = res.join("%20%20")
     whatsapptext = encodeURI(localStorage.getItem("results"));
-    whatsapptext = whatsapptext.split('*').join('%0D%0A');
+    whatsapptext = whatsapptext.split('*').join('%0A');
     console.log(whatsapptext);
     window.location.href = "https://wa.me/523318325850?text="+whatsapptext;}
 }
@@ -111,15 +110,18 @@ function clean(){
 }
 
 function updatedisplay(){
-    /*document.getElementById("display").innerHTML += (quantity + "- " + res.join("\xa0\xa0"));*/
-    document.getElementById("display").innerHTML += `<div>` +  name + "\xa0\xa0" + res.join("\xa0\xa0") + "*\xa0\xa0" + `</div>`;
-    console.log(name);
+    document.getElementById("display").innerHTML += `<div>` +  res.join("\xa0\xa0") + "\xa0\xa0" + name + "*\xa0\xa0" + `</div>`;
     document.getElementById("total").innerHTML = "Total: $" + quantity*25;
 }
 
 function recovername(){
     name = localStorage.getItem("alias");
-    document.getElementById("nombre").value = name;
+    if (name !=  null && name !="null")
+        document.getElementById("nombre").value = name;
+}
+
+function clearname(){
+    document.getElementById("nombre").value = "";
 }
 
 function allowcombination(){
@@ -141,6 +143,24 @@ function calculate(){
         quantity = localStorage.getItem("quantity");}
     document.querySelector('.botonenviar span').textContent = quantity;
     localStorage.setItem('alias', name);
+}
+
+function random(){
+    clean();
+    let container = document.getElementById("text");
+    let partidos = document.getElementsByClassName("partido");
+    for (var i = 0; i < 9; i++){
+        var r = getRandomInt(0,2);
+        partidos[i].getElementsByTagName("span")[r].style.backgroundColor = "rgb(168, 32, 22)";
+        res[i] = ["L","E","V"][r];
+    }
+    container.innerHTML = res.join("\xa0\xa0");
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 window.addEventListener("load",start,false);
