@@ -16,6 +16,10 @@
 
 }
 
+.botonera{
+    margin-top: 5%;
+}
+
 .aux{
     background-color: rgba(165, 42, 42, 0);
     width: 100%;
@@ -65,17 +69,18 @@ h1{
     text-align: center;
     padding: 14px;
     color: whitesmoke;
-    margin-top: 32px;
+    margin-top: 8%;
     border: solid 1px black;
     border-radius: 0 0 20px 20px;
+    background: linear-gradient(0, black, rgb(37, 155, 37));
 }
 
 h2,h3, #nombre{
     background-color:  #4ac959;
     text-align: center;
     padding: 8px;
-    width: 140px;
-    margin-right: 10px;
+    width: 35%;
+    margin-right: 6px;
     margin-top: 10px;
     border-radius: 5px;
     border: 2px black solid;
@@ -86,17 +91,16 @@ h2,h3, #nombre{
 
 #botonlisto{
     background-color: rgb(15, 163, 201);
-    width: 12.5%;
+    width: 12.3%;
     border-radius: 15px;
     padding-top: 10px;
-    transition: 0.5s all ease-out;
 }
 
 #botonborrar{
     background-color: red;
     border-radius: 15px;
     padding-top: 10px;
-    width: 12.5%;
+    width: 12.3%;
 }
 
 #nombre{
@@ -107,6 +111,7 @@ h2,h3, #nombre{
 #ultimonombre{
     margin-left: 11%;
 }
+
 
 p{
     padding: 10px;
@@ -125,5 +130,10 @@ h4{
     margin-top: 10px;
     display: contents;
     text-align: center;
+}
+
+h6{
+    display: inline;
+    margin-bottom: 10px;
 }
 

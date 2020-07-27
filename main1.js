@@ -4,7 +4,9 @@ let name;
 let combinations = false;
 
 function start(){
-    console.log(document.querySelector(".quiniela").style.width);
+    let width = document.getElementsByClassName('quiniela')[0].offsetWidth;
+    console.log(typeof(width));
+    document.getElementById("quiniela").style.height = width*0.9375 + "px";
     let container = document.getElementById("text");
     container.innerHTML = res.join("\xa0\xa0");
     let quantity = localStorage.getItem('quantity');
@@ -122,6 +124,7 @@ function recovername(){
 
 function allowcombination(){
     combinations=!combinations;
+    clean();
 }
 
 function calculate(){
