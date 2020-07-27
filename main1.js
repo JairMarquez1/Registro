@@ -77,7 +77,7 @@ function send(){
     else{
     let whatsapptext = res.join("%20%20")
     whatsapptext = encodeURI(localStorage.getItem("results"));
-    whatsapptext = whatsapptext.split('*').join('%0A');
+    whatsapptext = whatsapptext.split('*').join('%0D');
     console.log(whatsapptext);
     window.location.href = "https://wa.me/523318325850?text="+whatsapptext;}
 }
