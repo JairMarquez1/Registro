@@ -92,7 +92,8 @@ function save(){
         else
             number();
         result();
-        updatedisplay();}
+        updatedisplay();
+        clean();}
 }
 
 function deleteall(){
