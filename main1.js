@@ -40,6 +40,7 @@ function selection(element){
         }
         element.style.backgroundColor = "rgb(168, 32, 22)";
         container.innerHTML = res.join("\xa0\xa0");}
+    costoactual();
 }
 
 function validation(element){
@@ -107,6 +108,7 @@ function clean(){
     spans = document.querySelectorAll(".quiniela span");
     for (var i=0; i<27;i++)
         spans[i].style.backgroundColor = "";
+    document.getElementById("costo").innerHTML = "Costo: $0";
 }
 
 function updatedisplay(){
@@ -127,6 +129,7 @@ function clearname(){
 function allowcombination(){
     combinations=!combinations;
     clean();
+
 }
 
 function calculate(){
@@ -155,12 +158,23 @@ function random(){
         res[i] = ["L","E","V"][r];
     }
     container.innerHTML = res.join("\xa0\xa0");
+    costoactual();
 }
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function costoactual(){
+    if (!res.join("\xa0\xa0").includes("_")){
+        let aux = 1;
+        for (var i=0;i<9;i++){
+             aux*= res[i].length;
+        }
+        document.getElementById("costo").innerHTML = "Costo: $" + aux*25;
+    }
 }
 
 window.addEventListener("load",start,false);
