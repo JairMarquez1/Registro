@@ -30,7 +30,6 @@ function selection(element){
     let index = parseInt(element.id.slice(1)) - 1;
     let container = document.getElementById("text");
     if (!element.style.backgroundColor){
-        console.log(element.style.backgroundColor);
         if (!combinations){
             validation(element);
             res[index] = element.id.slice(0,1);
@@ -91,7 +90,6 @@ function send(){
     let whatsapptext = res.join("%20%20")
     whatsapptext = encodeURI(localStorage.getItem("results"));
     whatsapptext = whatsapptext.split('*').join('%0D');
-    console.log(whatsapptext);
     window.location.href = "https://wa.me/523318325850?text="+whatsapptext;}
 }
 
