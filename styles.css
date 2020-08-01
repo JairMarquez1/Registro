@@ -7,7 +7,7 @@
 
 .quiniela{
     margin: auto;
-    background-image: url("quiniela.png");
+    background-image: url("https://quinielajal.github.io/Registro-5/quiniela.png");
     background-size: 100%;
     background-repeat: no-repeat;
     max-width: 400px;
@@ -33,6 +33,10 @@
     margin-left: 4px;
     background-color: rgba(255, 255, 255, 0.288);
     border-radius: 10px;
+    background: rgba(255, 255, 255, 0.288);
+}
+.aux h3 ion-icon{
+    display: table-row-group;
 }
 
 
@@ -60,10 +64,12 @@ body{
     max-width: 400px;
     margin: auto;
     background-color: black;
-    background-image: url("fondo.jpg");
+    background-image: url("https://quinielajal.github.io/Registro-5/fondo.jpg");
     background-repeat: repeat-y;
     background-position: top;
 }
+
+  
 
 h1{
     background-color: teal;
@@ -78,13 +84,13 @@ h1{
 }
 
 h2,h3, #nombre{
-    background-color:  #4ac959;
+    background:  linear-gradient(0,  rgb(0, 175, 0) 20%, #4ac959 90%);
     text-align: center;
     padding: 8px;
     width: 35%;
     margin-right: 6px;
     margin-top: 10px;
-    border-radius: 5px;
+    border-radius: 6px;
     border: 2px black solid;
     border: none;
     float: left;
@@ -92,14 +98,14 @@ h2,h3, #nombre{
 }
 
 #botonlisto{
-    background-color: rgb(15, 163, 201);
+    background: linear-gradient(0,  rgb(0, 134, 175) 20%, rgb(15, 163, 201)); 
     width: 12.3%;
     border-radius: 15px;
     padding-top: 10px;
 }
 
 #botonborrar{
-    background-color: red;
+    background:  linear-gradient(0,  rgb(184, 0, 0) 20%, rgb(187, 1, 1) 90%);
     border-radius: 15px;
     padding-top: 10px;
     width: 12.3%;
@@ -108,12 +114,17 @@ h2,h3, #nombre{
 #nombre{
     width: 30%;
     background-color: white;
+    background: white;
 }
 
 #ultimonombre{
     margin-left: 11%;
     height: 17px;
     box-shadow: 1px 1px black;
+}
+
+#undo{
+    float: right;
 }
 
 
