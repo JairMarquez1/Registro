@@ -21,8 +21,9 @@ function start(){
                 display.innerHTML += `<div>`+ results[i] + `</div>`;} 
             else
                 break;
-    }
+        }
     document.getElementById("total").innerHTML = "Total: $" + quantity*25 +"\n";
+    if (display.childElementCount > 0)
     display.lastElementChild.innerHTML += `<button id="undo" onclick="remove()"><ion-icon name="arrow-undo-outline"></ion-icon></button>`;
 }  
 }
@@ -78,7 +79,6 @@ function result(){
     name = document.getElementById("nombre").value;
     name  = name.split('*').join('');
     if (results){
-        /*localStorage.setItem('results', results + "%0D" + res.join("%20%20"));*/
         if (aux > 1)
         localStorage.setItem('results', results + "\n" + res.join("\xa0\xa0") + "\xa0\xa0" + name + " (" + aux + ")" + "*");
         else
@@ -108,6 +108,7 @@ function save(){
         alert("Debes llenar todas las casillas");
     else if (!name){
         alert("Debes elegir un nombre");
+        document.getElementById("nombre").focus();
         return 0;}
     else{
         if (combinations)
@@ -138,14 +139,21 @@ function clean(){
 }
 
 function updatedisplay(){
+    if (aux == undefined)
+        aux=0;
+
     let display = document.getElementById("display");
-    if (quantity > 1)
-    display.lastElementChild.removeChild(display.lastElementChild.lastElementChild);
+    if (display.childElementCount > 0)
+        display.lastElementChild.removeChild(display.lastElementChild.lastElementChild);
+
     if (aux > 1)
         display.innerHTML += `<div>` +  res.join("\xa0\xa0") + "\xa0\xa0" + name + " (" + aux + ")" + "*\xa0\xa0" + `</div>`;
     else
-    display.innerHTML += `<div>` +  res.join("\xa0\xa0") + "\xa0\xa0" + name + "*\xa0\xa0" + `</div>`;
+        display.innerHTML += `<div>` +  res.join("\xa0\xa0") + "\xa0\xa0" + name + "*\xa0\xa0" + `</div>`;
+
     document.getElementById("total").innerHTML = "Total: $" + quantity*25;
+
+    if (display.childElementCount > 0)
     display.lastElementChild.innerHTML += `<button id="undo" onclick="remove()"><ion-icon name="arrow-undo-outline"></ion-icon></button>`;
     aux = 1;
 }
@@ -219,6 +227,7 @@ function remove(){
         x = localStorage.getItem("results");
         x = removeLastLine(x);
         localStorage.setItem("results", x);
+        results = x.split("*");
 
         let display = document.getElementById('display');
         last = display.lastElementChild.textContent;
@@ -229,25 +238,21 @@ function remove(){
         for (var i=0;i<9;i++){
             aux3*= last[i].length;
             }
-        if (quantity == 1)
-            localStorage.setItem("results","");
         quantity -= aux3;
-    
+
+        if (display.childElementCount < 2)
+            localStorage.setItem("results","");
+        
         display.removeChild(display.lastElementChild);
-
-        let container = document.getElementById("text");
-        container.innerHTML = res.join("\xa0\xa0");
-
-        let results = localStorage.getItem("results");
-        results = results.split("*");
 
         document.querySelector('.botonenviar span').textContent = quantity;
         document.getElementById("total").innerHTML = "Total: $" + quantity*25 +"\n";
 
         localStorage.setItem('quantity', quantity);
 
-        if (display.lastElementChild != null)
+        if (display.lastElementChild != null && display.childElementCount > 0)
             display.lastElementChild.innerHTML += `<button id="undo" onclick="remove()"><ion-icon name="arrow-undo-outline"></ion-icon></button>`;
+        
 }
 }
 
