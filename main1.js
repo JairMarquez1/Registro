@@ -5,6 +5,7 @@ let combinations = false;
 var aux;
 
 function start(){
+    document.getElementById("checkcombinaciones").checked = false;
     recovername();
     display = document.getElementById("display");
     let width = document.getElementsByClassName('quiniela')[0].offsetWidth;
@@ -40,7 +41,7 @@ function selection(element){
             res[index] += element.id.slice(0,1);
             res[index] = res[index].split('_').join('');
         }
-        element.style.backgroundColor = "rgb(168, 32, 22)";
+        element.style.backgroundColor = "rgb(250, 30, 30)";
     }
     else{
         if(combinations){
@@ -199,7 +200,7 @@ function random(){
     let partidos = document.getElementsByClassName("partido");
     for (var i = 0; i < 9; i++){
         var r = getRandomInt(0,2);
-        partidos[i].getElementsByTagName("span")[r].style.backgroundColor = "rgb(168, 32, 22)";
+        partidos[i].getElementsByTagName("span")[r].style.backgroundColor = "rgb(250, 30, 30)";
         res[i] = ["L","E","V"][r];
     }
     container.innerHTML = res.join("\xa0\xa0");
